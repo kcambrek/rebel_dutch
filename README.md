@@ -46,3 +46,6 @@ For RURED dataset, our result beats the scores described in [paper](https://www.
 | SpanBERT + RURED(Gordeev et al.)           | 0.782 | 0.841     | 0.731  |
 
 The performance measurements are made on only two datasets, which is a consequence of low number of large and quality Russian datasets available for Relation Extraction task.
+
+Our approach gives a 4% improvement in F1-score which is essential change, especially when we deal with larger text datasets that we use to extract relations from.
+It is also worth mentioning that pretraining strategy works well with REBEL-RU. Given that REBEL-RU silver dataset is a general domain dataset and RURED is an economical domain dataset our results are quite significant.
