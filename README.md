@@ -36,10 +36,12 @@ The model was trained on 1xNVIDIA Tesla V100 GPUб 512GB RAM and 80xIntel CPUs. 
 Model was also trained and tested in RURED dataset available [here](https://github.com/InstituteForIndustrialEconomics/rured). RURED is made by RANEPA researchers from Lenta.ru Economical articles.
 
 ## Performance
-We evaluate REBEL-RU model on REBEL-RU and RURED. Our table below shows the F1, Precision and Recall for Relation Extraction task.
+We evaluate REBEL-RU pretrained model on REBEL-RU and RURED. Our table below shows the F1, Precision and Recall for Relation Extraction task.
 For RURED dataset, our result beats the scores described in [paper](https://www.dialog-21.ru/media/5093/gordeevdiplusetal-031.pdf).
 
 | Dataset         | F1    | Precision | Recall |
 |-----------------|-------|-----------|--------|
 | REBEL-RU_silver | 0.865 | 0.891     | 0.84   |
 | RURED           | 0.821 | 0.863     | 0.783  |
+
+The low number of performance measurements is a consequence of low number of large and quality Russian datasets for Relation Extraction task.
