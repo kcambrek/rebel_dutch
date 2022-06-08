@@ -1,5 +1,5 @@
 # Automatic building of knowledge graphs from Russian texts
-This repo is made to support the research described in a Master's Thesis by Aidinian Artem on a topic of "Building Knowledge Graphs from Texts".
+This repo is made to supplement the research described in a Master's Thesis by Aidinian Artem on a topic of "Building Knowledge Graphs from Texts".
 
 ## Prepare the repo
 1) Download mbart-large-50 model into root of the repo.
