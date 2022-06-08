@@ -19,7 +19,7 @@ An example in the notebook illustrates a building of star-like knowledge graph f
 Demonstration of KGs is located in *demo* folder. It consists of images from Intros of 4 Wikipedia articles.
 
 ## Model
-Model underneath is a modified REBEL model by [Babelscape](https://github.com/Babelscape). We replace BART model with MBart-large-50 with additional changes to token handling and data. 
+Model underneath is a modified REBEL. We replace BART model with MBart-large-50 with additional changes to token handling and data. 
 To recreate the model we provide a command that runs a train.py script with our configurations for REBEL-RU dataset.
 
 To train and test the model on RURED it is possible to use TACRED template since the dataset is delivered in the same format. Transformations is [here](https://github.com/InstituteForIndustrialEconomics/rured/blob/master/convert_brat_to_tacred.py)
