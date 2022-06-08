@@ -13,7 +13,7 @@ def wiki_scrape(topic_name, verbose=True):
         except:
             return None
 
-    wiki_api = wikipediaapi.Wikipedia(language='en',
+    wiki_api = wikipediaapi.Wikipedia(language='ru',
         extract_format=wikipediaapi.ExtractFormat.WIKI)
     page_name = wiki_api.page(topic_name)
     if not page_name.exists():
