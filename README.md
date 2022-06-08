@@ -37,11 +37,12 @@ Model was also trained and tested in RURED dataset available [here](https://gith
 
 ## Performance
 We evaluate REBEL-RU pretrained model on REBEL-RU and RURED. Our table below shows the F1, Precision and Recall for Relation Extraction task.
-For RURED dataset, our result beats the scores described in [paper](https://www.dialog-21.ru/media/5093/gordeevdiplusetal-031.pdf).
+For RURED dataset, our result beats the scores described in [paper](https://www.dialog-21.ru/media/5093/gordeevdiplusetal-031.pdf). Improvements in scores are added into paretheses in the table below:
 
-| Dataset         | F1    | Precision | Recall |
+| Model + Dataset        | F1    | Precision | Recall |
 |-----------------|-------|-----------|--------|
-| REBEL-RU_silver | 0.865 | 0.891     | 0.84   |
-| RURED           | 0.821 | 0.863     | 0.783  |
+| REBEL_RU_pretrained + REBEL-RU_silver(ours)| 0.865 | 0.891     | 0.84   |
+| REBEL_RU_pretrained + RURED(main score, ours)           | **0.821**(+3.9%) | **0.863**(+2.2%)    | **0.783**(+5.2%)  |
+| SpanBERT + RURED(Gordeev et al.)           | 0.782 | 0.841     | 0.731  |
 
 The performance measurements are made on only two datasets, which is a consequence of low number of large and quality Russian datasets available for Relation Extraction task.
