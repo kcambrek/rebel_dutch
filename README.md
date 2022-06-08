@@ -44,4 +44,4 @@ For RURED dataset, our result beats the scores described in [paper](https://www.
 | REBEL-RU_silver | 0.865 | 0.891     | 0.84   |
 | RURED           | 0.821 | 0.863     | 0.783  |
 
-The low number of performance measurements is a consequence of low number of large and quality Russian datasets for Relation Extraction task.
+The performance measurements are made on only two datasets, which is a consequence of low number of large and quality Russian datasets available for Relation Extraction task.
