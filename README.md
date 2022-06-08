@@ -30,7 +30,7 @@ python train.py data=rebelru_data train=rebelru_train model=rebelru_model
 ```
 
 ## Pretraining
-REBEL-RU was pretrained on 98.9% on a silver dataset REBEL-RU dataset available [here](https://huggingface.co/datasets/InfroLab/REBEL-RU). Tested on 5.5% of REBEL-RU.
+REBEL-RU was pretrained on 98.9% of a silver dataset REBEL-RU that we created and it is available [here](https://huggingface.co/datasets/InfroLab/REBEL-RU). Tested on 5.5% of REBEL-RU.
 The model was trained on 1xNVIDIA Tesla V100 GPUб 512GB RAM and 80xIntel CPUs. We express great appreciation to our employer [SBER](https://sber.ru/) for giving an access to the hardware.
 
 Model was also trained and tested in RURED dataset available [here](https://github.com/InstituteForIndustrialEconomics/rured). RURED is made by RANEPA researchers from Lenta.ru Economical articles.
