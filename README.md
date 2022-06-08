@@ -1,4 +1,4 @@
-# Automatic building of knowledge graphs from texts for Russian texts
+# Automatic building of knowledge graphs from Russian texts
 This repo is made to support the research described in a Master's Thesis by Aidinian Artem on a topic of "Building Knowledge Graphs from Texts".
 
 ## Prepare the repo
