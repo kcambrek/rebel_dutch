@@ -16,7 +16,7 @@ The notebook uses scripts from *utils* folder. Make sure to have it with the not
 An example in the notebook illustrates a building of star-like knowledge graph from a Russian Intro to *Higher School of Economics* Wikipedia article.
 
 ## Constructed Knowledge Graphs
-Demonstration of KGs is located in *demo* folder. It consists of images from Intros of 4 Wikipedia articles.
+Demonstration of KGs is located in *demo* folder. It consists of images from Intros of 4 Wikipedia articles. Larger amounts of texts create bigger graphs with a structure that is hard to display without a specified software. 
 
 ## Model
 Model underneath is a modified REBEL. We replace BART model with MBart-large-50 with additional changes to token handling and data. 
