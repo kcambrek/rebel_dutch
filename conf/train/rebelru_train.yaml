@@ -24,7 +24,7 @@ amp_level:
 
 do_train: True
 do_eval: True
-do_predict: False
+do_predict: True
 evaluation_strategy: "no"
 prediction_loss_only: False
 checkpoint_path:
@@ -32,8 +32,8 @@ checkpoint_path:
 per_device_train_batch_size: 8
 per_device_eval_batch_size: 8
 
-per_gpu_train_batch_size: 
-per_gpu_eval_batch_size: 
+per_gpu_train_batch_size: 8 
+per_gpu_eval_batch_size:  8
 
 gradient_accumulation_steps: 1
 eval_accumulation_steps: 

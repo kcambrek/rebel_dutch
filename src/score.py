@@ -62,6 +62,7 @@ def parse_arguments():
     return args
 
 def score(key, prediction, verbose=False):
+    print(prediction)
     correct_by_relation = Counter()
     guessed_by_relation = Counter()
     gold_by_relation    = Counter()

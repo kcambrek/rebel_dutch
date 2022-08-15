@@ -39,6 +39,17 @@ _URLS = {
     "test": _URL + "en_test.jsonl",
 }
 
+# _URLS = {
+#     "train": r'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl\rebel_20000-25000.jsonl',
+#     "dev": r'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl/rebel_30000-35000.jsonl',
+#     "test": r'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl\rebel_35000-40000.jsonl',
+# }
+
+# train_file: 'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl\rebel_20000-25000.jsonl'
+# validation_file: 'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl/rebel_30000-35000.jsonl'
+# test_file: 'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl\rebel_35000-40000.jsonl'
+
+
 
 class RebelConfig(datasets.BuilderConfig):
     """BuilderConfig for REBEL."""
@@ -99,10 +110,36 @@ class Rebel(datasets.GeneratorBasedBuilder):
     def _generate_examples(self, filepath):
         """This function returns the examples in the raw (text) form."""
         logging.info("generating examples from = %s", filepath)
-        relations_df = pd.read_csv(self.config.data_files['relations'], header = None, sep='\t')
-        relations = list(relations_df[0])
+        # relations_df = pd.read_csv(self.config.data_files['relations'], header = None, sep='\t', encoding="UTF-8")
+        # relations = list(relations_df[0])
 
-        with open(filepath, encoding="utf-8") as f:
+        relations = ['land',
+                    'gelegen in bestuurlijke eenheid',
+                    'omvat bestuurlijke eenheid',
+                    'grenst aan',
+                    'is een',
+                    'geboortedatum',
+                    'diplomatieke relatie',
+                    'tijdstip',
+                    'geboorteplaats',
+                    'land van nationaliteit',
+                    'beroep',
+                    'onderdeel van',
+                    'overlijdensdatum',
+                    'overlijdensplaats',
+                    'omvat deel',
+                    'subklasse van',
+                    'voertaal',
+                    'officiële taal',
+                    'hoofdplaats van',
+                    'hoofdplaats',
+                    'moedertaxon',
+                    'niet gelijk aan',
+                    'datum van oprichting of creatie',
+                    'land van oorsprong'
+                    ] 
+
+        with open(str(filepath[0]), encoding="utf-8") as f:
             for id_, row in enumerate(f):
                 article = json.loads(row)
                 prev_len = 0

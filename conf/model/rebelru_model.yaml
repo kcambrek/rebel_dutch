@@ -1,11 +1,12 @@
 # @package _global_
 
-model_name_or_path: 'facebook/bart-large'
-config_name: 'facebook/bart-large'
-tokenizer_name: 'facebook/bart-large'
+model_name_or_path: 'facebook/mbart-large-50'
+config_name: 'facebook/mbart-large-50'
+tokenizer_name: 'facebook/mbart-large-50'
 cache_dir: 
 use_fast_tokenizer: True
 
 model_revision: 'main'
 use_auth_token: False
+#finetune is a weird parameter, determines if generate_triples or generate_samples is used.
 finetune: False

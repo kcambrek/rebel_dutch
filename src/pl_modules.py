@@ -139,7 +139,8 @@ class BasePLModule(pl.LightningModule):
         return output_dict
 
     def training_step(self, batch: dict, batch_idx: int) -> torch.Tensor:
-        labels = batch.pop("labels")
+        #labels = batch.pop("labels")
+        labels = batch["labels"]
         batch["decoder_input_ids"] = torch.where(labels != -100, labels, self.config.pad_token_id)
         labels = shift_tokens_left(labels, -100)
         forward_output = self.forward(batch, labels)

@@ -6,7 +6,7 @@ from torch import nn
 import numpy as np
 import pandas as pd
 from torch.nn.utils.rnn import pad_sequence
-import wandb
+#import wandb
 class GenerateTextSamplesCallback(Callback):  # pragma: no cover
     """
     PL Callback to generate triplets along training
@@ -32,11 +32,12 @@ class GenerateTextSamplesCallback(Callback):  # pragma: no cover
         batch_idx: int,
         dataloader_idx: int,
     ) -> None:
-        wandb_table = wandb.Table(columns=["Source", "Pred", "Gold"])
+        #wandb_table = wandb.Table(columns=["Source", "Pred", "Gold"])
         # pl_module.logger.info("Executing translation callback")
         if (trainer.batch_idx + 1) % self.logging_batch_interval != 0:  # type: ignore[attr-defined]
             return
-        labels = batch.pop("labels")
+        #labels = batch.pop("labels")
+        labels = batch.pop("labels").cpu()
         gen_kwargs = {
             "max_length": pl_module.hparams.val_max_target_length
             if pl_module.hparams.val_max_target_length is not None
@@ -70,8 +71,11 @@ class GenerateTextSamplesCallback(Callback):  # pragma: no cover
 
         # pl_module.logger.experiment.log_text('generated samples', '\n'.join(decoded_preds).replace('<pad>', ''))
         # pl_module.logger.experiment.log_text('original samples', '\n'.join(decoded_labels).replace('<pad>', ''))
-        for source, translation, gold_output in zip(decoded_inputs, decoded_preds, decoded_labels):
-            wandb_table.add_data(
-                source.replace('<pad>', ''), translation.replace('<pad>', ''), gold_output.replace('<pad>', '')
-            )
-        pl_module.logger.experiment.log({"Triplets": wandb_table})
+        print('generated samples', '\n'.join(decoded_preds).replace('<pad>', ''))
+        print('original samples', '\n'.join(decoded_labels).replace('<pad>', ''))
+
+        # for source, translation, gold_output in zip(decoded_inputs, decoded_preds, decoded_labels):
+        #     wandb_table.add_data(
+        #         source.replace('<pad>', ''), translation.replace('<pad>', ''), gold_output.replace('<pad>', '')
+        #     )
+        # pl_module.logger.experiment.log({"Triplets": wandb_table})

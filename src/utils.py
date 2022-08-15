@@ -234,7 +234,7 @@ def extract_triplets_typed(text, mapping_types= {'<peop>': 'Peop', '<org>': 'Org
     text = text.strip()
     current = 'x'
     subject, relation, object_, object_type, subject_type = '','','','',''
-
+    text = text.replace("nl_XX", "")
     for token in text.replace("<s>", "").replace("<pad>", "").replace("</s>", "").split():
         if token == "<triplet>":
             current = 't'

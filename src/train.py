@@ -9,7 +9,7 @@ from pl_modules import BasePLModule
 from transformers import AutoConfig, MBartForConditionalGeneration, MBart50TokenizerFast
 
 from pytorch_lightning.loggers.neptune import NeptuneLogger
-from pytorch_lightning.loggers.wandb import WandbLogger
+#from pytorch_lightning.loggers.wandb import WandbLogger
 
 from pytorch_lightning.callbacks import LearningRateMonitor
 from generate_samples import GenerateTextSamplesCallback
@@ -17,20 +17,30 @@ from generate_samples import GenerateTextSamplesCallback
 def train(conf: omegaconf.DictConfig) -> None:
     pl.seed_everything(conf.seed)
     
+    # config = AutoConfig.from_pretrained(
+    #     conf.config_name if conf.config_name else conf.model_name_or_path,
+    #     decoder_start_token_id = 0,
+    #     early_stopping = False,
+    #     no_repeat_ngram_size = 0,
+    #     dropout=conf.dropout,
+    #     forced_bos_token_id=None,
+    # )
+
     config = AutoConfig.from_pretrained(
         conf.config_name if conf.config_name else conf.model_name_or_path,
-        decoder_start_token_id = 0,
+        #decoder_start_token_id = 0,
         early_stopping = False,
         no_repeat_ngram_size = 0,
-        dropout=conf.dropout,
-        forced_bos_token_id=None,
+        dropout=conf.dropout
+        #forced_bos_token_id= None,
     )
+
     
     tokenizer_kwargs = {
         "use_fast": conf.use_fast_tokenizer,
         "additional_special_tokens": ['<obj>', '<subj>', '<triplet>'],
-        "src_lang": "ru_RU",
-        "tgt_lang": "ru_RU"
+        "src_lang": "nl_XX",
+        "tgt_lang": "nl_XX"
     }
 
     tokenizer = MBart50TokenizerFast.from_pretrained(
@@ -49,6 +59,14 @@ def train(conf: omegaconf.DictConfig) -> None:
         conf.model_name_or_path,
         config=config,
     )
+
+    model.config.decoder_start_token_id = tokenizer.lang_code_to_id["nl_XX"]
+
+    # forced_bos_token_id = (
+    #         tokenizer.lang_code_to_id["nl_XX"]
+    #     )
+    # model.config.forced_bos_token_id = forced_bos_token_id
+
     # if not conf.finetune:
     model.resize_token_embeddings(len(tokenizer))
 
@@ -58,7 +76,7 @@ def train(conf: omegaconf.DictConfig) -> None:
     # main module declaration
     pl_module = BasePLModule(conf, config, tokenizer, model)
 
-    wandb_logger = WandbLogger(project = conf.dataset_name.split('/')[-1].replace('.py', ''), name = conf.model_name_or_path.split('/')[-1])
+    #wandb_logger = WandbLogger(project = conf.dataset_name.split('/')[-1].replace('.py', ''), name = conf.model_name_or_path.split('/')[-1])
 
     callbacks_store = []
 
@@ -95,7 +113,7 @@ def train(conf: omegaconf.DictConfig) -> None:
         # max_steps=total_steps,
         precision=conf.precision,
         amp_level=conf.amp_level,
-        logger=wandb_logger,
+        #logger=wandb_logger,
         resume_from_checkpoint=conf.checkpoint_path,
         limit_val_batches=conf.val_percent_check
     )

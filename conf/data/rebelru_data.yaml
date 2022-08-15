@@ -1,12 +1,12 @@
 # @package _global_
 
 num_workers: 8
-dataset_name: '/home/martinez/rebel/datasets/rebel-short.py'
+dataset_name: 'C:\Users\kbrekelm\Desktop\python_projects\rebel_dutch/datasets/rebel-short.py'
 text_column: 'context'
 target_column: 'triplets'
-train_file: '/home/martinez/rebel/data/rebel/en_train.jsonl'
-validation_file: '/home/martinez/rebel/data/rebel/en_val.jsonl'
-test_file: '/home/martinez/rebel/data/rebel/en_test.jsonl'
+train_file: 'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl\rebel_20000-25000.jsonl'
+validation_file: 'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl/rebel_30000-35000.jsonl'
+test_file: 'C:\Users\kbrekelm\Desktop\python_projects\crocodile\out\nl\rebel_35000-40000.jsonl'
 overwrite_cache: False
 preprocessing_num_workers: 
 max_source_length: 256
@@ -20,4 +20,4 @@ num_beams:
 eval_beams: 3
 ignore_pad_token_for_loss: True
 source_prefix: 
-relations_file: '/home/martinez/rebel/data/relations_count.tsv'
+relations_file: 'C:\Users\kbrekelm\Desktop\python_projects\rebel_dutch\data\nlrebel_relations.tsv'
